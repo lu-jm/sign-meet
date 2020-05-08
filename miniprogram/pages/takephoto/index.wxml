@@ -1,0 +1,7 @@
+<!--pages/takephoto/index.wxml-->
+<view>
+  <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera>
+  <button class="takephoto_btn" type="primary" bindtap="takePhoto">拍照</button>
+  <image mode="widthFix" class="photo" src="{{src}}"></image>
+  <button wx:if="{{src}}" class="takephoto_btn" type="primary" bindtap="uploadCheckPhoto">确认上传</button>
+</view>

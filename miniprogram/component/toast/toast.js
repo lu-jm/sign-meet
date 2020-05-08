@@ -1,0 +1,29 @@
+Component({
+  properties:{
+    innerText:{
+      type:String,
+      value:'default value',
+    }
+  },
+  data:{
+    dataText:'',
+    isHide:false
+  },
+  methods:{
+    hideDialog(){
+      this.setData({
+        isHide:!this.data.isHide
+      })
+    },
+    showDialog(data){
+      this.setData({
+        isHide:!this.data.isHide,
+        dataText:data
+      })
+      var _this=this
+      setTimeout(function(){
+        _this.hideDialog()
+      },1000)
+    }
+  }
+})

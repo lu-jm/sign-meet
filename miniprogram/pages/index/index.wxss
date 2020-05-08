@@ -1,0 +1,67 @@
+.cell, .cell-spacebtn {
+  padding: 16px;
+  position: relative;
+  display: flex;
+}
+
+.cell_address {
+  padding: 16px;
+  position: relative;
+}
+
+.cell::before, .cell_address::before {
+  content: " ";
+  position: absolute;
+  left: 16rpx;
+  top: 0;
+  right: 16rpx;
+  height: 1px;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.cell_bd {
+  padding-left: 5rpx;
+}
+
+.cell_bd-datepicker {
+  margin: 0 100rpx 0 auto;
+  color: #7a7a7a;
+}
+
+.cell_bd-timepicker {
+  position: absolute;
+  right: 30rpx;
+  color: #7a7a7a;
+}
+
+.cell-spacebtn:active {
+  background: #52bd4470;
+}
+
+.cell-lable {
+  width: auto;
+}
+
+.cell-btn {
+  margin-left: 160rpx;
+}
+
+.cell-btn:active {
+  color: #06ae56;
+}
+
+.cell-input {
+  max-width: 100%;
+}
+
+.cell_bd-left {
+  position: relative;
+  left: 30rpx;
+}
+
+.cell_bd-right {
+  position: absolute;
+  right: 30rpx;
+}
+
+

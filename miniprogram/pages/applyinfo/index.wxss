@@ -1,0 +1,7 @@
+/* pages/applyinfo/index.wxss */
+.cell_flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx auto
+}

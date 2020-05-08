@@ -1,0 +1,67 @@
+.user_bd {
+  padding: 20rpx;
+  width: 100%;
+  background: #ededed;
+  position: relative;
+  top: 40rpx;
+}
+
+.user_bd::after {
+
+}
+
+.user_input {
+  height: 80rpx;
+  font-size: 40rpx;
+  margin: 20rpx 80rpx;
+}
+
+.user_input::after{
+  content: " ";
+  width: 75%;
+  align-items: center;
+  position: absolute;
+  height: 20rpx;
+  border-bottom: 1rpx solid #b1b1b1;
+}
+
+.input_line {
+  border-top: 1rpx solid #bdbdbd;
+}
+
+.user_button:active{
+  background: #295d22;
+}
+
+.custom{
+  width: 100%;
+  height: 350rpx;
+}
+
+.custom_bd{
+  position: fixed;
+  top: 120rpx;
+  left: 20rpx;
+  width: 150rpx;
+  height: 250rpx;
+  background: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ededed;
+}
+.cell{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 30rpx;
+}
+.cell_content{
+  margin-left: 20rpx;
+}
+.cell_line{
+  content: ' ';
+  border-top: 3rpx solid #ededed;
+  width: 90%;
+  margin: auto 0 auto auto
+}

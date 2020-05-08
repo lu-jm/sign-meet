@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="page__hd" style="padding:50rpx;">
+    <view class="page__title" style="font-size: 70rpx;">报名</view>
+
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">会议名称</view>
+          <view class="weui-form-preview__value_in-hd">{{meet.meet_name}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">简介</view>
+          <view class="weui-form-preview__value">{{meet.meet_introduce}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">会议开始时间</view>
+          <view class="weui-form-preview__value">{{meet.startdate}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">会议结束时间</view>
+          <view class="weui-form-preview__value">{{meet.enddate}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">会议发起人</view>
+          <view class="weui-form-preview__value">{{meet.userinfo[0].name}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">电话</view>
+          <view class="weui-form-preview__value">{{meet.userinfo[0].tel}}</view>
+          <view class="weui-form-preview__value" style="color:blue;" bindtap="toCall">打电话>..</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">会议地点</view>
+          <view class="weui-form-preview__value">{{meet.meet_address.name}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">详细地址</view>
+          <view class="weui-form-preview__value">{{meet.meet_address.address}}</view>
+          <view class="weui-form-preview__value" style="color:blue" bindtap="toMapCheck">在地图中查看>..</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">签到方式</view>
+          <block wx:if="{{meet.met_checkmode_scan}}">
+            <view class="weui-form-preview__value">扫码签到</view>
+          </block>
+          <block wx:if="{{meet.met_checkmode_photo}}">
+            <view class="weui-form-preview__value">拍照签到</view>
+          </block>
+          <block wx:if="{{meet.met_checkmode_gesture}}">
+            <view class="weui-form-preview__value">手势签到</view>
+          </block>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <view catchtap="signMeet" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">报名</view>
+      </view>
+    </view>
+
+  </view>
+</view>

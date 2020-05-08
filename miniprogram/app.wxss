@@ -1,0 +1,156 @@
+/**app.wxss**/
+@import 'miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+page {
+  background-color: #ededed;
+  font-size: 16px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.page_bd {
+  width: 100%;
+  background: rgba(195, 146, 146, 0);
+  position: relative;
+  margin-top: 8px;
+  background-color: #fff;
+  line-height: 1.41176471;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+}
+
+.page_gap {
+  margin: 20rpx 20rpx 0 20rpx;
+}
+
+.page_bd_space {
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+}
+
+.page_bd:after, .page_bd:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  color: #ededed;
+}
+
+.page_title {
+  text-align: left;
+  font-size: 30rpx;
+  font-weight: 200;
+}
+
+.page_btn {
+  width: 80%;
+  height: 80rpx;
+  background: #06ae56;
+  margin: 40rpx auto;
+  border-radius: 15rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 40rpx;
+}
+
+.page_btn:active {
+  background: #295d22;
+}
+
+.user_button {
+  width: 80%;
+  height: 80rpx;
+  background: #53bd44;
+  margin: 40rpx auto;
+  border-radius: 15rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 40rpx;
+}
+
+.user_button:active {
+  background: #295d22;
+}
+
+.background-float {
+  height: 80%;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 4rpx 4rpx 8rpx rgba(0, 0, 0, 0.5);
+  margin-bottom: 20rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.background-float:active{
+  background: rgb(212, 212, 212)
+}
+.background_cell-line {
+  display: flex;
+  flex-direction: row;
+}
+.background_cell-colum {
+  display: flex;
+  flex-direction: column;
+}
+
+.background-img {
+  margin: 40rpx 0 20rpx 40rpx;
+}
+.background-hasfinish{
+  margin-top: 20rpx;
+  text-align: center;
+  border-radius: 10%;
+}
+
+.background-cell {
+  display: flex;
+  flex-direction: column;
+  margin: 40rpx auto 20rpx 40rpx;
+}
+.background_card{
+position: relative;
+top:130rpx;
+}
+.background_empty{
+  width: 50%;
+  padding-left: 25%;
+  padding-top: 35%;
+  position: relative;
+  top: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.cell_gap-row {
+  content: ' ';
+  width: 90%;
+  margin-left: 5%;
+  border-top: 3rpx solid rgba(0, 0, 0, 0.1);
+}
+.cell_gap-colum {
+  content: ' ';
+  height: 50rpx;
+  transform: translateY(25%);
+  border-left: 5rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.searchbar {
+  width: 100%;
+  background: rgba(195, 146, 146, 0);
+  position: relative;
+  background-color: #fff;
+  line-height: 1.41176471;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+}

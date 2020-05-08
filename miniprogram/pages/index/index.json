@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "toast":"../../component/toast/toast",
+    "modal":"../../component/modal/modal"
+  },
+  "navigationBarTitleText": "会议签到系统"
+}

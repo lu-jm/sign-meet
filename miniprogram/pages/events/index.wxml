@@ -1,0 +1,58 @@
+<view class="page">
+  <view class="page_hd cell_title">
+    <view class="cell" style="color:{{attend_color}};">
+      <view id="attend_btn" class="cell_btn" bindtap="myMeeting">我参与的</view>
+    </view>
+    <view class="cell_gap-colum"></view>
+    <view class="cell" style="color:{{change_color}};">
+      <view id="change_btn" class="cell_btn" bindtap="myMeeting">我管理的</view>
+    </view>
+  </view>
+
+  <view class="background_card" wx:if="{{haslist}}">
+    <block wx:for="{{list}}" wx:key="_id" wx:for-index="index">
+      <view id="{{index}}" class="background-float" bindtap="chooseMeeting">
+        <view class="background_cell-line">
+          <view class="background-img background_cell-colum">
+            <image src="../../icon/agenda.png" style="width:100rpx;height:100rpx;"></image>
+            <view class="background-hasfinish" style="background:#ededed;" wx:if='{{item.done}}'>
+              <text>已完成</text>
+            </view>
+            <view class="background-hasfinish" style="background:#1296db" wx:else>
+              <text>未完成</text>
+            </view>
+
+          </view>
+          <view class="background-cell">
+            <view>{{item.meet_name}}</view>
+            <view>{{item.met_introduce}}</view>
+            <view>开始时间：{{item.startdate}}</view>
+            <view>结束时间：{{item.enddate}}</view>
+          </view>
+        </view>
+        <view class="cell_gap-row"></view>
+        <block wx:if="{{hideedit}}">
+          <view class="background_cell-line">
+            <view class="cell background_cell-line">
+              <image src="../../icon/write.png" style="width:40rpx;height:40rpx;"></image>
+              <view id="{{index}}" class="cell_btn" catchtap="editMeeting">编辑</view>
+            </view>
+            <view class="cell_gap-colum"></view>
+            <view class="cell background_cell-line">
+              <image src="../../icon/delete.png" style="width:40rpx;height:40rpx;"></image>
+              <view id="{{index}}" class="cell_btn" catchtap="delMeeting">删除</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  
+  <view wx:else>
+    <view class="background_empty">
+      <image style="width:200rpx;height:200rpx;" src="../../icon/article.png"></image>
+      <view class="creatmet_btn" bindtap="creatMeeting">创建会议</view>
+    </view>
+  </view>
+  
+</view>

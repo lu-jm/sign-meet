@@ -1,0 +1,7 @@
+<view class="toast_content_box" wx:if="{{isHide}}" catchtouchmove="">
+  <view class="toast_content">
+    <view class="toast_content-text">
+      {{dataText}}
+    </view>
+  </view>
+</view>

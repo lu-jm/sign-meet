@@ -1,0 +1,17 @@
+<view class="modal_mask" wx:if="{{isshow}}">
+  <view class="modal_main">
+    <scroll-view>
+      <slot></slot>
+    </scroll-view>
+    <view class="modal_topline"></view>
+    <view class="modal_btnblock">
+      <view style="margin: 20rpx auto;">
+        <view class="modal_btn" bindtap="check_center">确定</view>
+      </view>
+      <view class="modal_leftline"></view>
+      <view style="margin: 20rpx auto;">
+        <view class="modal_btn" bindtap="check_cancel">取消</view>
+      </view>
+    </view>
+  </view>
+</view>

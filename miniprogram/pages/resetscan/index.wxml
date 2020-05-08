@@ -1,0 +1,9 @@
+<!--pages/resetscan/index.wxml-->
+
+<view class="page">
+  <view class="page_bd" style="align-items: center;background-color: #ededed;">
+    <image src="{{imgURL}}" style="width:500rpx;height:500rpx"></image>
+    <button style="margin-top:30rpx" bindtap="bindimg">点击刷新</button>
+  </view>
+
+</view>

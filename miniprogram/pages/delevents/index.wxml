@@ -1,0 +1,44 @@
+<view>
+  <view id="all_del" class="all_del" bindtap="allDelete">
+    <text style="padding:30rpx;text-align:center;">全部删除</text>
+  </view>
+  <view style="position: relative;top:20rpx;">
+    <block wx:for="{{info}}" wx:key="{{item._id}}" wx:for-index="index">
+      <view id="{{index}}" class="background-float" bindtap="chooseMeeting">
+        <view class="background_cell-line">
+          <view class="background-img background_cell-colum">
+            <image src="../../icon/agenda.png" style="width:100rpx;height:100rpx;"></image>
+            <view class="background-hasfinish" style="background:#ededed;" wx:if='{{item.done}}'>
+              <text>已完成</text>
+            </view>
+            <view class="background-hasfinish" style="background:#1296db" wx:else>
+              <text>未完成</text>
+            </view>
+
+          </view>
+          <view class="background-cell">
+            <view>{{item.meet_name}}</view>
+            <view>{{item.met_introduce}}</view>
+            <view>{{item.startdate}}</view>
+            <view>{{item.enddate}}</view>
+          </view>
+        </view>
+
+        <view class="cell_gap-row"></view>
+
+        <view class="background_cell-line">
+          <view class="background_cell-line" style="margin:20rpx auto;">
+            <image src="../../icon/delete.png" style="width:40rpx;height:40rpx;"></image>
+            <view id="{{index}}" class="cell_btn" catchtap="recycleMeeting">还原</view>
+          </view>
+          <view class="cell_gap-colum"></view>
+          <view class="background_cell-line" style="margin:20rpx auto;">
+            <image src="../../icon/delete.png" style="width:40rpx;height:40rpx;"></image>
+            <view id="{{index}}" class="cell_btn" catchtap="delMeeting">删除</view>
+          </view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+</view>

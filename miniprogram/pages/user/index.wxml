@@ -1,0 +1,28 @@
+<view class="custom">
+  <image src="../../image/background.jpg" style="width:100%;height:100%;" mode="scaleToFill">
+  </image>
+  <view class="custom_bd">
+    <image style="width:150rpx;height:150rpx;border-radius:50%;display:block;" src="{{userInfo.avatarUrl}}"></image>
+    <text>{{userInfo.nickName}}</text>
+  </view>
+</view>
+
+<view>
+  <view class="page_bd">
+    <view class="cell" bindtap="recycleBin">
+      <image src="../../icon/ashbin.png" style="width:50rpx;height:50rpx;"></image>
+      <view class="cell_content">回收站</view>
+    </view>
+    <view class="cell_line"></view>
+    <view class="cell" bindtap="myMeeting">
+      <image src="../../icon/manage-order.png" style="width:50rpx;height:50rpx;"></image>
+      <view class="cell_content">我的会议</view>
+    </view>
+    <view class="cell_line"></view>
+    <view class="cell">
+      <image src="../../icon/prompt.png" style="width:50rpx;height:50rpx;"></image>
+      <view class="cell_content">关于</view>
+    </view>
+  </view>
+  <button wx:if="{{canIUse}}" bindtap="bindGetUserInfo">授权登录</button>
+</view>

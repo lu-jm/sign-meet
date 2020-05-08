@@ -1,0 +1,21 @@
+<view class="page_white">
+  <view>请完善信息</view>
+  <view class="page_bd">
+    <view class="cell">
+      <view class="cell_lable">姓名</view>
+      <input bindinput="addName" placeholder="请输入姓名"></input>
+    </view>
+    <view class="cell_topline"></view>
+    <view class="cell">
+      <view class="cell_lable">手机号</view>
+      <input bindinput="addTel" placeholder="请输入手机号"></input>
+    </view>
+    <view class="cell_topline"></view>
+    <view class="cell">
+      <input bindinput="addCheckcode" placeholder="请输入验证码"></input>
+      <button bindtap="setTime" disabled="{{canTouch}}" style="background-color:{{setcolor}};color:#ffff;">{{setcontent}}</button>
+    </view>
+    <view class="cell_topline"></view>
+    <view class="user_button" bindtap="checkCenter">确定</view>
+  </view>
+</view>

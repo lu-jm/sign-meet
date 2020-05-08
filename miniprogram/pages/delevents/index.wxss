@@ -1,0 +1,18 @@
+.cell_reclye {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.all_del {
+  width: 100%;
+  background-color: #ffff;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.all_del:active {
+  background-color: #52bd4470;
+}

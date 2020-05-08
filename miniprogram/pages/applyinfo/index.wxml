@@ -1,0 +1,9 @@
+<!--pages/applyinfo/index.wxml-->
+<view class="page">
+  <view class="page_bd cell_flex">
+    <icon type="info" size="93"></icon>
+    <view>需要获得微信授权</view>
+    <button wx:if="{{canIUse}}" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">确定</button>
+    <button bindtap="cancel">取消</button>
+  </view>
+</view>

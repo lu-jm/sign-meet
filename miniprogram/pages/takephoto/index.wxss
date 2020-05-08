@@ -1,0 +1,10 @@
+/* pages/takephoto/index.wxss */
+
+.takephoto_btn {
+  margin-top: 20rpx;
+}
+
+.photo {
+  margin-top: 30rpx;
+  width: 100%;
+}

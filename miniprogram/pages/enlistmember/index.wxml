@@ -1,0 +1,34 @@
+<!--pages/signmember/index.wxml-->
+<view class="page">
+  <view class="page_bd">
+    <view class="weui-panel">
+      <view style="background-color:#ededed;color: #838383;">
+        <text>报名人数：{{meet_num}}人</text>
+      </view>
+      <view class="searchbar">
+        <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+      </view>
+      <view class="weui-panel__hd">报名列表</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+
+            <block wx:for="{{info_list}}">
+              <view id="{{index}}" bindtap="toSingleMember" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                  <image src="{{item.avatarUrl}}" style="width: 20px;height: 20px;margin-right: 16px;vertical-align:middle;" />
+                </view>
+                <view class="weui-cell__bd weui-cell_primary">
+                  <view>{{item.name}}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </view>
+            </block>
+
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

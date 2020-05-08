@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mini-gesture-lock": "../../component/miniGestureLock/index"
+  }
+}

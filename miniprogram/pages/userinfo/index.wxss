@@ -1,0 +1,27 @@
+.cell {
+  background-color: #ffff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx;
+  position: relative;
+  align-items: center;
+}
+
+.cell_topline {
+  content: " ";
+  width: 95%;
+  margin-left: 2.5%;
+  border-top: 3rpx solid #ededed;
+}
+
+.cell_lable {
+  width: 15%;
+}
+
+button{
+  padding-right: 0
+}
+page{
+  background:#ffff
+}

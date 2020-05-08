@@ -1,0 +1,80 @@
+<!--pages/singlemember/index.wxml-->
+<view class="page">
+  <view class="page__hd" style="padding:50rpx;display:flex;align-items: center;">
+    <block wx:if="{{flag}}">
+      <view class="page__title" style="font-size: 70rpx;">{{title}}</view>
+      <image class="singlemember_image" src="{{info.avatarUrl}}"></image>
+    </block>
+    <block wx:else>
+      <view class="page__title" style="font-size: 70rpx;">{{title}}</view>
+      <image class="singlemember_image" src="{{info.userinfo[0].avatarUrl}}"></image>
+    </block>
+
+
+
+  </view>
+  <view class="page__bd">
+    <!-- 判断是报名名单还是签到名单 -->
+    <block wx:if="{{flag}}">
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">姓名</view>
+            <view class="weui-form-preview__value_in-hd">{{info.name}}</view>
+          </view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">电话</view>
+            <view class="weui-form-preview__value">{{info.tel}}</view>
+            <view class="weui-form-preview__value" style="color:blue;" bindtap="toCall">打电话>..</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">微信昵称</view>
+            <view class="weui-form-preview__value">{{info.wx_name}}</view>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <view catchtap="signMeet" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">发消息</view>
+        </view>
+      </view>
+    </block>
+    <!-- 如果是签到名单 -->
+    <block wx:else>
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">姓名</view>
+            <view class="weui-form-preview__value_in-hd">{{info.userinfo[0].name}}</view>
+          </view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">签到时间</view>
+            <view class="weui-form-preview__value">{{info.check_time}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">签到类型</view>
+            <view class="weui-form-preview__value">{{info.check_type}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">电话</view>
+            <view class="weui-form-preview__value">{{info.userinfo[0].tel}}</view>
+            <view class="weui-form-preview__value" style="color:blue;" bindtap="toCall">打电话>..</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">微信昵称</view>
+            <view class="weui-form-preview__value">{{info.userinfo[0].wx_name}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">图片</view>
+            <image src="{{info.img}}" style="width:500rpx;height:380rpx;" mode="scaleToFill" bindtap="previewImage"></image>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <view catchtap="checkConfirm" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">确认</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,105 @@
+<view class="page">
+  <view class="page_hd">
+    <view class="page_title">{{title}}</view>
+  </view>
+
+  <view class="page_bd">
+    <view class="cell">
+      <view class="cell_bd">
+        <input bindinput="addTheme" class="cell-input" placeholder="请输入会议标题" value="{{list.meet_name}}"></input>
+      </view>
+    </view>
+
+    <view class="cell">
+      <view class="cell_bd">
+        <input bindinput="addIntroduce" class="cell-input" placeholder="会议简介" value="{{list.meet_introduce}}"></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="page_bd">
+    <view class="cell">
+      <view class="cell_bd-lable">开始时间</view>
+      <picker id="startdate" class=".cell_bd-datepicker" mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{list.startdate[0]}}
+        </view>
+      </picker>
+      <picker id="starttime" class=".cell_bd-timepicker" mode="time" value="{{time}}" bindchange="bindTimeChange">
+        <view class="picker">
+          {{list.startdate[1]}}
+        </view>
+      </picker>
+    </view>
+    <view class="cell">
+      <view class="cell_bd-lable">结束时间</view>
+      <picker id="enddate" class="cell_bd-datepicker" mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{list.enddate[0]}}
+        </view>
+      </picker>
+      <picker id="endtime" class="cell_bd-timepicker" mode="time" value="{{time}}" bindchange="bindTimeChange">
+        <view class="picker">
+          {{list.enddate[1]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="page_gap">会议地点</view>
+
+  <view class="page_bd">
+    <view class="cell">
+      <view class="cell_bd">
+        <input class="cell-input" placeholder="详细地址" bindinput="addDetailadr" value="{{list.meet_address.address}}"></input>
+      </view>
+      <view class="cell-btn cell_bd-right" bindtap="Tomap">查看地图</view>
+    </view>
+  </view>
+  <!-- 更多选项 -->
+  <view class="page_bd">
+    <view class="cell-spacebtn" bindtap="isBindview">
+      <view class="cell_bd">更多选项</view>
+      <view class="cell_bd-right" wx:if='{{isBindExpert==true}}'>
+        <image style="width:50rpx;height:40rpx;" src="../../icon/upward.png"></image>
+      </view>
+      <view class="cell_bd-right" wx:else>
+        <image style="width:50rpx;height:40rpx;" src="../../icon/down.png"></image>
+      </view>
+    </view>
+    <view hidden='{{!isBindExpert}}'>
+      <view class="cell">
+        <view>签到方式</view>
+        <checkbox-group class="cell_bd-right" bindchange="checkMode">
+          <label wx:for="{{list.items}}" wx:key="index">
+            <checkbox value="{{item.name}}" checked="{{item.flag}}">{{item.value}}</checkbox>
+          </label>
+        </checkbox-group>
+
+      </view>
+      <view class="cell">
+        <view>参会人数</view>
+        <input bindinput="addNum" class="cell-input cell_bd-left" type="number" placeholder="请输入参会人数(1~1000)" value="{{list.meet_num}}"></input>
+      </view>
+      <view class="cell" bindtap="upfile">
+        <view>会议附件</view>
+        <view class="cell_bd-right">
+          <image style="width:50rpx;height:40rpx;" src="../../icon/next.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 按钮：判断是否新建会议还是修改会议 -->
+  <block wx:if="{{change}}">
+    <button id="change_btn" class="weui-btn" style="margin-top:40rpx;" type="primary" bindtap="changemeeting">确定</button>
+    <button class="weui-btn" type="primary" bindtap="deleteFromDate">放弃修改</button>
+  </block>
+  <block wx:else>
+    <button id="add_btn" class="weui-btn" style="margin-top:40rpx;" type="primary" bindtap="changemeeting">提交</button>
+  </block>
+  <toast class="toast_style" inner-text="你号" id='toastDialog'></toast>
+</view>
+<!-- 
+<view>
+  <button bindtap="scan">扫码</button>
+</view> -->

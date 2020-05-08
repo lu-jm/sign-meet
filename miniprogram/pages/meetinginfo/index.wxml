@@ -1,0 +1,71 @@
+<view class="page">
+  <view class="page__hd" style="padding:40rpx;text-align:center;">
+    <view class="page__title">{{choosemet_id.meet_name}}</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">简介</view>
+          <view class="weui-form-preview__value_in-hd">{{choosemet_id.meet_introduce}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">开始时间</view>
+          <view class="weui-form-preview__value">{{choosemet_id.startdate}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">结束时间</view>
+          <view class="weui-form-preview__value">{{choosemet_id.enddate}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">参会人数</view>
+          <view class="weui-form-preview__value">{{choosemet_id.meet_num}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">会议地点</view>
+          <view class="weui-form-preview__value">{{choosemet_id.meet_address.name}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">详细地址</view>
+          <view class="weui-form-preview__value">{{choosemet_id.meet_address.address}}</view>
+          <view class="weui-form-preview__value" style="color:blue" bindtap="toMapCheck">在地图中查看>..</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">签到方式</view>
+          <view wx:if="{{choosemet_id.checkitem.scan}}" class="weui-form-preview__value">扫码签到</view>
+          <view wx:if="{{choosemet_id.checkitem.photo}}" class="weui-form-preview__value">拍照签到</view>
+          <view wx:if="{{choosemet_id.checkitem.gesture}}" class="weui-form-preview__value">手势签到</view>
+        </view>
+        <!-- 判断是否是管理的会议 -->
+        <block wx:if="{{isManage}}">
+          <view class="weui-form-preview__item">
+            <view wx:if="{{choosemet_id.checkitem.scan}}">
+              <button class="weui-btn" type="default" bindtap="showImg">查看签到二维码</button>
+            </view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view wx:if="{{choosemet_id.checkitem.gesture}}">
+              <button class="weui-btn" type="default" bindtap="setGesture">设置签到手势</button>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="weui-form-preview__ft">
+        <block wx:if="{{isManage}}">
+          <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="showEnlistMember">报名名单</view>
+          <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="showSignMember">签到名单</view>
+        </block>
+        <block wx:else>
+          <view wx:if="{{choosemet_id.checkitem.scan}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="scan">扫码</view>
+          <view wx:if="{{choosemet_id.checkitem.photo}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="takephoto">拍照</view>
+          <view wx:if="{{choosemet_id.checkitem.gesture}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="setGesture">手势</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <button wx:if="{{isManage}}" class="weui-btn" style="margin-top: 30rpx;width: 80%;" type="primary" open-type="share">分享</button>
+  <button class="weui-btn" style="margin-top: 30rpx;width: 80%;" type="primary" bindtap="addSchedule">添加日程提醒</button>
+</view>
