@@ -177,14 +177,17 @@ Page({
         code: that.data.checkcode
       },
       success: res => {
+        // console.log('checkcode success')
+        console.log(app.globalData.userInfo)
         if (res.result == true) {
+          // 添加用户信息
+          console.log(app.globalData.userInfo)
           wx.cloud.callFunction({
             name: 'addUserInfo',
             data: {
               name: that.data.name,
               tel: that.data.tel,
-              userinfo: app.globalData.userInfo,
-              openid: app.globalData.openid
+              userinfo: app.globalData.userInfo
             },
             success: res => {
               app.globalData.hasbasedata = true
@@ -207,6 +210,7 @@ Page({
                 icon: 'none',
                 duration: 2000
               })
+              console.log(err)
             }
           })
         } else {

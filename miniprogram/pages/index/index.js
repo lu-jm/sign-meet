@@ -58,7 +58,6 @@ Page({
     //console.log("onLoad");
     // 如果flag==1表示将要修改该会议
     if (options.flag == '1') {
-
       var info = JSON.parse(decodeURIComponent(options.info))
       // 修改日期格式
       info.startdate = info.startdate.split(" ")
@@ -97,8 +96,8 @@ Page({
     } else {
       that.getCustomTime()
     }
-    console.log(info)
-    console.log(that.data.list)
+    // console.log(info)
+    // console.log(that.data.list)
   },
 
   /**

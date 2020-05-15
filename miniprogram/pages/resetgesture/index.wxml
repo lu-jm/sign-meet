@@ -7,7 +7,6 @@
   <block wx:else>
     <mini-gesture-lock container-width="{{600}}" cycleRadius="{{70}}" bind:end="onEnd" password="{{password}}" flag="resetgesture"></mini-gesture-lock>
     <view class="result">{{data}}</view>
-    <view class="result">正确密码是：12369</view>
     <button bindtap="refushGesture">重置手势</button>
   </block>
 </view>

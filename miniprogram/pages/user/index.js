@@ -19,15 +19,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (app.globalData.hasuserInfo == true) {
-      console.log("已经获取hasuserInfo", app.globalData.hasuserInfo)
+    if (app.globalData.hasbasedata) {
+      console.log("已经获取hasuserInfo", app.globalData.hasbasedata)
       this.setData({
         userInfo: app.globalData.userInfo,
-        canIUse:false
+        canIUse: false
       })
     } else {
+      console.log('数据库不存在用户信息')
       this.setData({
-        canIUse:true
+        canIUse: true
       })
       // wx.getSetting({
       //   success(res) {
@@ -56,7 +57,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    if (app.globalData.hasbasedata) {
+      this.setData({
+        canIUse: false,
+        userInfo:app.globalData.userInfo
+      })
+    }
   },
 
   /**
@@ -104,7 +110,7 @@ Page({
     })
   },
   // 跳转至我的会议
-  myMeeting:function(){
+  myMeeting: function() {
     wx.switchTab({
       url: '../events/index',
     })

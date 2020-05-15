@@ -56,22 +56,25 @@ App({
         try{
           that.globalData.openid = wx.getStorageSync('openid')
         }catch(e){}
-        console.log("true")
+        // console.log("true")
       } else {
+        // 判断用户信息是否存在于数据库
         wx.cloud.callFunction({
           name: 'getopenid',
           data: {},
           success: res => {
+            console.log('getopenid')
+            console.log(res)
             that.globalData.openid = res.result.openid
             that.globalData.hasbasedata = res.result.ishas
-            if (res.result.ishas == true) {
+            if (res.result.ishas) {
               try {
-                wx.setStorageSync('hasbasedate', true)
+                wx.setStorageSync('hasbasedata', true)
                 wx.setStorageSync('openid', res.result.openid)
               } catch (e) {}
             } else {
               try {
-                wx.setStorageSync('hasbasedate', false)
+                wx.setStorageSync('hasbasedata', false)
               } catch (e) {}
             }
             //console.log("ishas", res.result.ishas)
