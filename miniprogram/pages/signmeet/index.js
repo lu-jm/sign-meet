@@ -1,7 +1,6 @@
 // pages/signmeet/index.js
 const app = getApp()
 const tm = require('../index/comparetime.js')
-var ithas = false
 Page({
 
   /**
@@ -51,9 +50,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    ithas = false
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -108,7 +105,9 @@ Page({
       title: '确定要报名吗',
       content: '报名完成后可以在我参加的会议中查看',
       success: res => {
+        // 点击确定
         if (res.confirm) {
+          // 如果身份信息不完善，跳转至用户信息注册页面
           if (!app.globalData.hasbasedata) {
             wx.showModal({
               title: '报名失败',
@@ -130,40 +129,46 @@ Page({
             })
             return
           } else {
-            if (!ithas) {
-              wx.cloud.callFunction({
-                name: 'signMeet',
-                data: {
-                  openid: app.globalData.openid,
-                  meet: that.data.meet._id
-                },
-                success: res => {
-                  console.log(res.result)
-                  if (res.result == 1) {
-                    ithas = true
-                    wx.showToast({
-                      title: '报名成功',
-                      icon: 'none',
-                      duration: 2000,
-                    })
-                  }else{
-                    ithas = true
-                    wx.showToast({
-                      title: '您已经报名了',
-                      icon: 'none',
-                      duration: 2000,
-                    })
-                  }
-                },
-                fail: err => {},
-              })
-            } else {
-              wx.showToast({
-                title: '不能重复报名',
-                icon: 'none',
-                duration: 2000,
-              })
-            }
+            wx.cloud.callFunction({
+              name: 'signMeet',
+              data: {
+                meet: that.data.meet._id
+              },
+              success: res => {
+                if (res.result===-5) {
+                  wx.showToast({
+                    title: '您是会议创建者',
+                    icon: 'none',
+                    duration: 2000,
+                  })
+                } else if (res.result === 1) {
+                  wx.showToast({
+                    title: '报名成功',
+                    icon: 'none',
+                    duration: 2000,
+                  })
+                } else if (res.result === 0) {
+                  wx.showToast({
+                    title: '您已经报名了',
+                    icon: 'none',
+                    duration: 2000,
+                  })
+                }else if(res.result===11){
+                  wx.showToast({
+                    title: '人数已满',
+                    icon: 'none',
+                    duration: 2000,
+                  })
+                } else {
+                  wx.showToast({
+                    title: '报名失败',
+                    icon: 'none',
+                    duration: 2000,
+                  })
+                }
+              },
+              fail: err => {},
+            })
           }
         }
       }

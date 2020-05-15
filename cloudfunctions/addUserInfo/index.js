@@ -5,15 +5,17 @@ cloud.init()
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async(event, context) => {
+  const wxContext = cloud.getWXContext()
   var info = await db.collection("user_info")
     .where({
-      _id: event.openid
+      _id: wxContext.OPENID
     })
     .get()
+  // 如果用户数据库没有信息，则进行添加
   if (info.data.length == 0) {
     await db.collection("user_info").add({
       data: {
-        _id: event.openid,
+        _id: wxContext.OPENID,
         name: event.name,
         tel: event.tel,
         age: '',
@@ -25,9 +27,10 @@ exports.main = async(event, context) => {
         change_meet: [],
       },
     })
+    // 如果有则进行信息更新
   } else {
     await db.collection("user_info")
-      .doc(event.openid)
+      .doc(wxContext.OPENID)
       .update({
         data: {
           name: event.name,
@@ -41,4 +44,5 @@ exports.main = async(event, context) => {
         }
       })
   }
+  return wxContext.OPENID
 }

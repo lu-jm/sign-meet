@@ -131,6 +131,7 @@ Page({
   },
   //点击查看该会议详细信息
   chooseMeeting: function(e) {
+    console.log(e)
     var that = this
     let id = e.currentTarget.id
     var uninfo = that.data.list[id]

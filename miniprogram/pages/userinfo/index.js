@@ -178,10 +178,11 @@ Page({
       },
       success: res => {
         // console.log('checkcode success')
-        console.log(app.globalData.userInfo)
+        // console.log(app.globalData.userInfo)
         if (res.result == true) {
           // 添加用户信息
-          console.log(app.globalData.userInfo)
+          // console.log(app.globalData.userInfo)
+        // 添加用户数据
           wx.cloud.callFunction({
             name: 'addUserInfo',
             data: {
@@ -191,20 +192,15 @@ Page({
             },
             success: res => {
               app.globalData.hasbasedata = true
-              try{
-                wx.setStorageSync('hasbasedata', true)
-              }catch(e){}
+              app.globalData.openid=res.result
               console.log(app.globalData.hasbasedata)
+              console.log(app.globalData.openid)
               wx.navigateBack({
                 delta: num
               })
               wx.hideLoading()
             },
             fail: err => {
-              wx.setStorage({
-                key: 'hasbasedata',
-                data: false,
-              })
               wx.showToast({
                 title: '提交失败',
                 icon: 'none',

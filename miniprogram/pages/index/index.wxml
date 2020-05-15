@@ -51,7 +51,7 @@
   <view class="page_bd">
     <view class="cell">
       <view class="cell_bd">
-        <input class="cell-input" placeholder="详细地址" bindinput="addDetailadr" value="{{list.meet_address.address}}"></input>
+        <input class="cell-input" placeholder="详细地址" bindinput="addDetailadr" value="{{list.meet_address.address}}" disabled></input>
       </view>
       <view class="cell-btn cell_bd-right" bindtap="Tomap">查看地图</view>
     </view>

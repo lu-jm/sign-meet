@@ -18,6 +18,7 @@ Page({
         openid: app.globalData.openid
       },
       success: res => {
+        console.log(res.result)
         that.setData({
           info: res.result.data
         })

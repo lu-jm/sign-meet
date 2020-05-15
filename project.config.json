@@ -188,24 +188,42 @@
 					"id": -1,
 					"name": "pages/takephoto/index",
 					"pathName": "pages/takephoto/index",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/event/index",
 					"pathName": "pages/event/index",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/events/index",
 					"pathName": "pages/events/index",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/enlistmember/index",
 					"pathName": "pages/enlistmember/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/signmeet/index",
+					"pathName": "pages/signmeet/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/signmeet/index",
+					"pathName": "pages/signmeet/index",
+					"query": "",
 					"scene": null
 				}
 			]

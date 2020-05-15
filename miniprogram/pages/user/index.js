@@ -10,8 +10,6 @@ Page({
     inputplaceholder_2: '密码',
     statusBarHeight: app.globalData.statusBarHeight,
     userInfo: {},
-    hasUserInfo: false,
-
     canIUse: true
   },
 
@@ -20,7 +18,7 @@ Page({
    */
   onLoad: function(options) {
     if (app.globalData.hasbasedata) {
-      console.log("已经获取hasuserInfo", app.globalData.hasbasedata)
+      console.log("已经获取hasuserInfo", app.globalData.hasbasedata,app.globalData.userInfo)
       this.setData({
         userInfo: app.globalData.userInfo,
         canIUse: false
